@@ -1,6 +1,3 @@
-//
-// Created by sin_een on 8/20/17.
-//
 
 #include <memory.h>
 #include <stdio.h>
@@ -15,6 +12,9 @@
 #define EXACT 0.00001
 #define MAX_DIM  400
 
+/**
+ *
+ */
 typedef struct vector
 {
     double point[MAX_DIM]; // should be more than one maybe array ?? or for in a stuct chekc that out
@@ -38,11 +38,13 @@ void getVector(FILE* input , int dim , vector* v , int x)
     char* token = strtok(in, STOP);
     int i;
 
-    for ( i=0; i < dim; i++){
-        v->point[i]= strtod(token, NULL);
+    for ( i = 0; i < dim; i++)
+    {
+        v->point[i] = strtod(token, NULL);
         token = strtok(NULL, STOP);
     }
-    if (x < 0 ) {
+    if (x < 0 )
+    {
         v->label = (int) strtod(token, NULL);
     }
 
@@ -60,17 +62,19 @@ int braket(int dim, vector* v, vector* w)
     if ( mul > GOOD )
     {
         return GOODOUT;
-    } else
+    }
+    else
     {
         return BAD;
     }
 }
 
 
-void algo(int dim, vector* wVector ,vector* v)
+void algo(int dim, vector* wVector, vector* v)
 {
-    int mul= braket(dim, wVector, v);
-    if ( mul != v->label ){
+    int mul = braket(dim, wVector, v);
+    if ( mul != v->label )
+    {
         addVectors(dim, wVector, multiplyVecScal(dim, v->label , *v));
     }
 }
@@ -84,7 +88,7 @@ void addVectors(int dim, vector* w , vector v)
 {
 
     int i;
-    for (i=0; i < dim; ++i)
+    for (i = 0; i < dim; ++i)
     {
         w->point[i] = w->point[i] + v.point[i];
     }
@@ -94,7 +98,7 @@ vector multiplyVecScal(int dim, int scalar, vector v)
 {
     vector w = {{0}, 0};
     int i;
-    for (i=0; i < dim; ++i)
+    for (i = 0; i < dim; ++i)
     {
         w.point[i] = scalar * v.point[i];
     }
@@ -105,18 +109,20 @@ int getNumber(char *token)
 {
     if ( strtok(NULL, STOP) != NULL)
     {
-        fprintf(stderr," wrong input");
+        fprintf(stderr, " wrong input");
     }
-    int d = (int)(strtod(token,NULL ));
+    int d = (int)(strtod(token, NULL ));
     return d;
 }
 
 void labelAndPrint(int dim, vector* v, vector w)
 {
     int mul = braket(dim, &w , v);
-    if ( mul > EXACT ){
+    if ( mul > EXACT )
+    {
         printf("%d  \n", GOODOUT);
-    } else
+    }
+    else
     {
         printf("%d  \n", BAD);
 
@@ -147,14 +153,16 @@ void run(FILE* input)
 
 // learns the learnign input running the algo
     int j;
-    for ( j =0; j < exampleNumber; ++j){
+    for ( j = 0; j < exampleNumber; ++j)
+    {
         getVector(input, dim, &vector1, BAD);
         algo(dim, &w, &vector1);
     }
     // labels the vectors
 
-    while ( !feof(input)) {
-        getVector(input, dim ,&vector1, GOOD);
+    while ( !feof(input))
+    {
+        getVector(input, dim , &vector1, GOOD);
         labelAndPrint(dim, &vector1, w);
     }
 }
@@ -163,7 +171,7 @@ int main(int argc, char** argv)
 {
     if (argc  != 2 )
     {
-        fprintf(stderr,"error bad arguments");
+        fprintf(stderr, "error bad arguments");
         return (BAD);
     }
     //name of teh file in argv[1];
