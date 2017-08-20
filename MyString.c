@@ -13,10 +13,10 @@ unsigned int check(const char* str1, const char* str2, int forSize);
 
 /**
  *
- * @param str1
- * @param str2
- * @param forSize
- * @return
+ * @param str1 the first  string we compare with
+ * @param str2 teh second string we want to find
+ * @param forSize how many times we need to run depends of if cyclic or of str 2 bigger or smaller that str1
+ * @return how many times it was found
  */
 unsigned int check(const char* str1, const char* str2, int forSize)
 {
@@ -57,10 +57,10 @@ unsigned int check(const char* str1, const char* str2, int forSize)
 
 /**
  *
- * @param str1
- * @param str2
- * @param isCyclic
- * @return
+ * @param str1 the first  string we compare with
+ * @param str2 teh second string we want to find
+ * @param isCyclic >0 if yes  < 0 if no
+ * @return how many times it was found
  */
 unsigned int countSubStr(const char* str1, const char* str2, int isCyclic)
 {
@@ -121,7 +121,7 @@ unsigned int countSubStr(const char* str1, const char* str2, int isCyclic)
 /**
  *
  * @param string
- * @return
+ * @return teh lingth of teh string
  */
 int length(const char *string)
 {
