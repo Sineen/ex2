@@ -1,6 +1,8 @@
-//
-// Created by sin_een on 8/20/17.
-//
+#ifndef COUNT_SUB_STR_H
+#define COUNT_SUB_STR_H
+
+#include <stdio.h>
+
 
 
 
@@ -13,3 +15,4 @@ int braket(int dim, vector* v, vector* w);
 void algo(int dim, vector* wVector ,vector* v);
 int getNumber(char *token);
 
+#endif
