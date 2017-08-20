@@ -3,9 +3,6 @@
 
 #include <stdio.h>
 
-
-
-
 typedef struct vector vector;
 void addVectors(int dim, vector* w , vector v);
 vector multiplyVecScal(int dim, int scalar, vector v);
