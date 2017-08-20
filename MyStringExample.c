@@ -1,4 +1,4 @@
-#include "schoolfiles_FILES/MyString.h"
+#include "MyString.h"
 
 int main()
 {
