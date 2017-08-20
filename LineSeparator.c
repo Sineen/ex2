@@ -57,12 +57,12 @@ int braket(int dim, vector* v, vector* w)
     {
         mul = mul + (v->point[i] * w->point[i]);
     }
-    if ( mul > EXACT )
+    if ( mul > GOOD )
     {
-         return BAD;
+         return GOODOUT;
     } else
     {
-        return GOODOUT;
+        return BAD;
     }
 }
 
@@ -71,7 +71,7 @@ void algo(int dim, vector* wVector ,vector* v)
 {
     int mul= braket(dim, wVector, v);
     if ( mul != v->label ){
-        addVectors(dim, wVector, multiplyVecScal(dim, mul, *v));
+        addVectors(dim, wVector, multiplyVecScal(dim, v->label , *v));
     }
 }
 /**
@@ -114,7 +114,7 @@ int getNumber(char *token)
 void labelAndPrint(int dim, vector* v, vector w)
 {
     int mul = braket(dim, &w , v);
-    if ( mul > GOOD ){
+    if ( mul > EXACT ){
         printf("%d  \n", GOODOUT);
     } else
     {
