@@ -8,7 +8,7 @@
 #define GOOD 0
 #define GOODOUT 1
 #define BUFF 10000
-#define STOP  "\n / ,"
+#define STOP  "\n,"
 #define EXACT 0.00001
 #define MAX_DIM  400
 
