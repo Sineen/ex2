@@ -33,7 +33,11 @@ typedef struct vector
 void getVector(FILE* input , int dim , vector* v , int x)
 {
     char in[BUFF] = "";
-    fgets(in, BUFF, input);
+    if(fgets(in, BUFF, input) == NULL)
+    {
+        fprintf(stderr, "Wrong input");
+        return;
+    }
     char* token = strtok(in, STOP);
     int i;
     for ( i = 0; i < dim; i++)
