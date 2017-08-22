@@ -36,7 +36,7 @@ void getVector(FILE* input , int dim , vector* v , int x)
     fgets(in, BUFF, input);
     char* token = strtok(in, STOP);
     int i;
-
+        /// check if token is null  maybe 
     for ( i = 0; i < dim; i++)
     {
         v->point[i] = strtod(token, NULL);
