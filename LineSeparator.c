@@ -35,7 +35,7 @@ void getVector(FILE* input , int dim , vector* v , int x)
     char in[BUFF] = "";
     if(fgets(in, BUFF, input) == NULL)
     {
-        fprintf(stderr, "Wrong input");
+        //fprintf(stderr, "1 Wrong input");
         return;
     }
     char* token = strtok(in, STOP);
