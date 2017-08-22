@@ -36,9 +36,13 @@ void getVector(FILE* input , int dim , vector* v , int x)
     fgets(in, BUFF, input);
     char* token = strtok(in, STOP);
     int i;
-        /// check if token is null  maybe 
     for ( i = 0; i < dim; i++)
     {
+        if ( token == NULL )
+        {
+            fprintf(stderr,"Wrong input");
+            return;
+        }
         v->point[i] = strtod(token, NULL);
         token = strtok(NULL, STOP);
     }
