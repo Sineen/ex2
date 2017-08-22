@@ -218,6 +218,7 @@ int main(int argc, char** argv)
     {
         run(inFile);
     }
+    fclose(inFile);
     return GOOD;
 
 }
