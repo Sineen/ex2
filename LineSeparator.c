@@ -40,7 +40,7 @@ void getVector(FILE* input , int dim , vector* v , int x)
     {
         if ( token == NULL )
         {
-            fprintf(stderr,"Wrong input");
+            fprintf(stderr, "Wrong input");
             return;
         }
         v->point[i] = strtod(token, NULL);
