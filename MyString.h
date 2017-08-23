@@ -18,7 +18,19 @@
  * @return number appearance of str2 as substring of str1
  */
 unsigned int countSubStr(const char* str1, const char* str2, int isCyclic);
+/**
+ *
+ * @param string
+ * @return teh lingth of teh string
+ */
 int length (const char* string);
+/**
+ *
+ * @param str1 the first  string we compare with
+ * @param str2 teh second string we want to find
+ * @param forSize how many times we need to run depends of if cyclic or of str 2 bigger or smaller that str1
+ * @return how many times it was found
+ */
 unsigned int check(const char* str1, const char* str2, int forSize);
 
 #endif

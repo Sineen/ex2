@@ -38,6 +38,7 @@ void getVector(FILE* input , int dim , vector* v , int x)
         //fprintf(stderr, "1 Wrong input");
         return;
     }
+
     char* token = strtok(in, STOP);
     int i;
     for ( i = 0; i < dim; i++)
@@ -177,13 +178,25 @@ void run(FILE* input)
 
 
     // read first  lines,
-    fgets(in, BUFF, input);
+    if (fgets(in, BUFF, input) == NULL )
+    {
+        fprintf(stderr, " Wrong input first line ");
+        return;
+    }
+    assert( in != NULL);
     token = strtok(in, STOP);
+    assert( token != NULL);
     dim = getNumber(token);
     assert(dim > 0);
     // reads second line
-    fgets(in, BUFF, input);
+    if (fgets(in, BUFF, input) == NULL )
+    {
+        fprintf(stderr, " Wrong input second line ");
+        return;
+    }
+    assert( in != NULL);
     token = strtok(in, STOP);
+    assert( token != NULL);
     exampleNumber = getNumber(token);
     assert(exampleNumber > 0);
 
