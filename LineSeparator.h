@@ -44,7 +44,7 @@ int braket(int dim, vector* v, vector* w);
  * @param v a vector we want to culculate aginst the w
  * this function updated wVector to be the linear parser
  */
-void algo(int dim, vector* wVector ,vector* v);
+void algo(int dim, vector* wVector , vector* v);
 /**
  * @param dim the dimintion of teh field we are working on
  * @param v the vector we want to check
